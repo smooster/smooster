@@ -1,0 +1,71 @@
+HOST: http://api.smooster.com/
+
+--- smooster Dev ---
+
+---
+Welcome to the our smooster API documentation.
+---
+
+--
+Media Asset Resources
+The following is a section of resources related to media assets
+--
+
+List media assets from a certain site.
+GET /v1/media_assets
+< 200
+< Content-Type: application/json
+{ "media_assets": [
+{"id":"51f90a9c24f8750c3900001c" "url": "http://assets.kreativbox24.de/2ZY48XPZ/picture.png", "content_type":"image/png", "original_file_size": 1 }
+] }
+
+List media assets from a certain site with a filter by folder.
+
+## Parameters
+<table>
+    <tr>
+        <td>
+            <strong>folder_path</strong><br/>
+            optional
+        </td>
+        <td>
+            Returns only the media_assets of given folder_path. If not set it will return all media_assets.<br/>
+            <strong>Example Value:</strong> '/images/japan2012'
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>count</strong><br/>
+            optional
+        </td>
+        <td>
+            The number of assets return<br/>
+            <strong>Example Value:</strong> 10
+        </td>
+    </tr>
+    
+</table>
+GET /v1/media_assets
+> Content-Type: application/json
+{ "folder_path":"/whatever/folder", "count": 10 }
+< 200
+< Content-Type: application/json
+{ "media_assets": [
+{"id":"51f90a9c24f8750c3900001c" "url": "http://assets.kreativbox24.de/2ZY48XPZ/picture.png", "content_type":"image/png", "original_file_size": 1 }
+] }
+
+Save new products in your shopping cart
+POST /shopping-cart
+> Content-Type: application/json
+{ "product":"1AB23ORM", "quantity": 2 }
+< 201
+< Content-Type: application/json
+{ "status": "created", "url": "/shopping-cart/2" }
+
+-- Payment Resources --
+
+This resource allows you to submit payment information to process your *shopping cart* items
+POST /payment
+{ "cc": "12345678900", "cvc": "123", "expiry": "0112" }
+< 200
+{ "receipt": "/payment/receipt/1" }
