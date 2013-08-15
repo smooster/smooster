@@ -1,8 +1,8 @@
-smooster by IM-Concepts GmbH
+smooster GmbH
 ===========================
 
 ##Description
-smooster is a platform for web apps made for creatives, first product is [smooster style](http://smooster.com)
+smooster is a platform for web apps made for creatives, first product is [smooster](http://smooster.com)
 
 ##Tools, Libaries and stuff we love and use to manufacture our products
 
